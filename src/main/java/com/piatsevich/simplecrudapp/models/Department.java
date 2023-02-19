@@ -5,6 +5,9 @@ public class Department {
     private String name;
     private String location;
 
+    public Department() {
+    }
+
     public Department(Integer id, String name, String location) {
         this.id = id;
         this.name = name;

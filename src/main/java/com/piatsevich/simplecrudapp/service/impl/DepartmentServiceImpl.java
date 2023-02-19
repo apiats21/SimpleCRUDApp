@@ -1,37 +1,41 @@
 package com.piatsevich.simplecrudapp.service.impl;
 
 import com.piatsevich.simplecrudapp.models.Department;
+import com.piatsevich.simplecrudapp.repository.DepartmentRepository;
+import com.piatsevich.simplecrudapp.repository.jdbc.DepartmentRepositoryImpl;
 import com.piatsevich.simplecrudapp.service.DepartmentService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class DepartmentServiceImpl implements DepartmentService {
 
-    private final DepartmentService departmentService = new DepartmentServiceImpl();
+    private final DepartmentRepository departmentRepository = new DepartmentRepositoryImpl();
 
     @Override
     public Department getById(Integer id) {
-        return departmentService.getById(id);
+        return departmentRepository.getById(id);
     }
 
     @Override
     public Department create(Department department) {
-        return departmentService.create(department);
+        return departmentRepository.save(department);
     }
 
     @Override
     public List<Department> getAll() {
-        return departmentService.getAll();
+        return departmentRepository.getAll();
     }
 
     @Override
     public Department update(Department department) {
-        return departmentService.update(department);
+        return departmentRepository.update(department);
     }
 
     @Override
     public void delete(Integer id) {
-        departmentService.delete(id);
+        departmentRepository.deleteById(id);
 
     }
 }

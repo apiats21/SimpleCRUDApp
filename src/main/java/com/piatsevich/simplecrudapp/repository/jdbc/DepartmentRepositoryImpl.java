@@ -1,26 +1,15 @@
 package com.piatsevich.simplecrudapp.repository.jdbc;
 
 import com.piatsevich.simplecrudapp.config.JdbcUtils;
-import com.piatsevich.simplecrudapp.models.Person;
 import com.piatsevich.simplecrudapp.repository.DepartmentRepository;
 import com.piatsevich.simplecrudapp.models.Department;
 import org.springframework.stereotype.Component;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class DepartmentRepositoryImpl implements DepartmentRepository {
-
-    private Connection connection;
-
-    public DepartmentRepositoryImpl() {
-        this.connection = JdbcUtils.getConnection();
-    }
 
     @Override
     public Department getById(Integer integer) {
@@ -38,26 +27,22 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 
         String SQL = "SELECT * FROM departments";
 
-
         try {
-            Statement statement = connection.createStatement();
+            PreparedStatement preparedStatement =JdbcUtils.getConnection().prepareStatement(SQL); // old way
+            ResultSet rs = preparedStatement.executeQuery(); // old way
 
-            ResultSet resultSet = statement.executeQuery(SQL);
-
-            while(resultSet.next()) {
+            while(rs.next()) {
                 Department department = new Department();
-
-                department.setName(resultSet.getString("dep_name"));
-                department.setLocation(resultSet.getString("dep_location"));
-
-
+                department.setName(rs.getString("dep_name"));
+                department.setLocation(rs.getString("dep_location"));
                 departments.add(department);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+            return departments;
 
-        return departments;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

@@ -11,6 +11,9 @@ import java.util.List;
 @Component
 public class DepartmentRepositoryImpl implements DepartmentRepository {
 
+    private static final String GET_ALL_DEPARTMENTS = "SELECT * FROM departments";
+    private static final String SAVE_DEPARTMENT =  "INSERT INTO departments (dep_name, dep_location) VALUES(?,?)";
+
     @Override
     public Department getById(Integer integer) {
         return null;
@@ -18,18 +21,26 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
 
     @Override
     public Department save(Department department) {
-        return null;
+        PreparedStatement stmt = null;
+        try {
+            stmt = JdbcUtils.getConnection().prepareStatement(SAVE_DEPARTMENT);
+            stmt.setString(1, department.getName());
+            stmt.setString(2, department.getLocation());
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return department;
     }
 
     @Override
     public List<Department> getAll() {
         List<Department> departments = new ArrayList<>();
 
-        String SQL = "SELECT * FROM departments";
-
         try {
-            PreparedStatement preparedStatement =JdbcUtils.getConnection().prepareStatement(SQL); // old way
-            ResultSet rs = preparedStatement.executeQuery(); // old way
+            PreparedStatement stmt =JdbcUtils.getConnection().prepareStatement(GET_ALL_DEPARTMENTS);
+            ResultSet rs = stmt.executeQuery();
 
             while(rs.next()) {
                 Department department = new Department();

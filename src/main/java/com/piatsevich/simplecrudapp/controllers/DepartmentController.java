@@ -1,12 +1,12 @@
 package com.piatsevich.simplecrudapp.controllers;
 
+import com.piatsevich.simplecrudapp.models.Department;
+import com.piatsevich.simplecrudapp.models.Person;
 import com.piatsevich.simplecrudapp.service.impl.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/department")
@@ -29,5 +29,16 @@ public class DepartmentController {
     public String show(@PathVariable("id") int id, Model model) {
         model.addAttribute("department", departmentService.getById(id));
         return "department/show";
+    }
+
+    @GetMapping("/new")
+    public String newDepartment(@ModelAttribute Department department) {
+        return "department/new";
+    }
+
+    @PostMapping()
+    public String create(@ModelAttribute Department department) {
+        departmentService.create(department);
+        return "redirect:/department";
     }
 }

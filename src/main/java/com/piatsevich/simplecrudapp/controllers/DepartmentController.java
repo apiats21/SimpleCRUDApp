@@ -41,4 +41,22 @@ public class DepartmentController {
         departmentService.create(department);
         return "redirect:/department";
     }
+
+    @GetMapping("/{id}/edit")
+    public String edit(Model model, @PathVariable("id") int id) {
+        model.addAttribute("department", departmentService.getById(id));
+        return "department/edit";
+    }
+
+    @PatchMapping("/{id}")
+    public String update(@ModelAttribute("department") Department department, @PathVariable("id") int id) {
+        departmentService.update(department);
+        return "redirect:/department";
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
+        departmentService.delete(id);
+        return "redirect:/department";
+    }
 }

@@ -6,5 +6,11 @@
 </head>
 <body>
 <p th:text="${department.getName() + ', ' + department.getLocation()}">VALUE</p>
+
+<a th:href="@{/department/{id}/edit(id=${department.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/department/{id}(id=${department.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
 </body>
 </html>

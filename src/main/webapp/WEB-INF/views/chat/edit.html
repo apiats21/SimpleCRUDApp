@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:method="PATCH" th:action="@{/chat/{id}(id=${chat.getId()})}" th:object="${chat}">
+  <label for="chatName">Enter chat name: </label>
+  <input type="text" th:field="*{name}" id="chatName"/>
+  <br/>
+  <label for="creator_id">Enter employee id:</label>
+  <input type="text" th:field="*{employee.id}" id="creator_id"/>
+  <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>

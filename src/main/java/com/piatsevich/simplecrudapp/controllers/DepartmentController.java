@@ -1,7 +1,6 @@
 package com.piatsevich.simplecrudapp.controllers;
 
 import com.piatsevich.simplecrudapp.models.Department;
-import com.piatsevich.simplecrudapp.models.Person;
 import com.piatsevich.simplecrudapp.service.impl.DepartmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

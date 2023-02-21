@@ -1,5 +1,11 @@
 <html>
 <body>
-<h2>Hello Wodsssdsrld!</h2>
+<a href="/employee">Employee</a>
+<br/>
+<a href="/department">Department</a>
+<br/>
+<a href="/chat">Chat</a>
+<br/>
+<a href="/project">Project</a>
 </body>
 </html>

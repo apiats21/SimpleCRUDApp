@@ -5,6 +5,8 @@ public class Client {
     private String name;
     private String email;
 
+    public Client() {}
+
     public Client(Integer id, String name, String email) {
         this.id = id;
         this.name = name;

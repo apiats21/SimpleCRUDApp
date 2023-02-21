@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Project details</title>
+</head>
+<body>
+
+<p th:text="${project.getName()  + ', ' + project.getClient().getName()}">VALUE</p>
+<p>Employees:</p>
+<div th:each="employee : ${project.getEmployee()}">
+    <a  th:text="${employee.getUsername()}">employee</a>
+</div>
+
+
+<br/>
+<hr/>
+<a th:href="@{/project/{id}/edit(id=${project.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/project/{id}(id=${project.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+</body>
+</html>

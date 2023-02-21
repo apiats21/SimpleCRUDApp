@@ -4,9 +4,11 @@ import com.piatsevich.simplecrudapp.models.Chat;
 import com.piatsevich.simplecrudapp.repository.ChatRepository;
 import com.piatsevich.simplecrudapp.repository.jdbc.ChatRepositoryImpl;
 import com.piatsevich.simplecrudapp.service.ChatService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ChatServiceImpl implements ChatService {
 
     private final ChatRepository chatRepository = new ChatRepositoryImpl();

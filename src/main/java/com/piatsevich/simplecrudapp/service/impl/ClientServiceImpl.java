@@ -4,9 +4,11 @@ import com.piatsevich.simplecrudapp.models.Client;
 import com.piatsevich.simplecrudapp.repository.ClientRepository;
 import com.piatsevich.simplecrudapp.repository.jdbc.ClientRepositoryImpl;
 import com.piatsevich.simplecrudapp.service.ClientService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository = new ClientRepositoryImpl();

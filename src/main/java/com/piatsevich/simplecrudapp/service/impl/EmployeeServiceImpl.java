@@ -4,9 +4,11 @@ import com.piatsevich.simplecrudapp.models.Employee;
 import com.piatsevich.simplecrudapp.repository.EmployeeRepository;
 import com.piatsevich.simplecrudapp.repository.jdbc.EmployeeRepositoryImpl;
 import com.piatsevich.simplecrudapp.service.EmployeeService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository = new EmployeeRepositoryImpl();

@@ -4,9 +4,11 @@ import com.piatsevich.simplecrudapp.models.Project;
 import com.piatsevich.simplecrudapp.repository.ProjectRepository;
 import com.piatsevich.simplecrudapp.repository.jdbc.ProjectRepositoryImpl;
 import com.piatsevich.simplecrudapp.service.ProjectService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository projectRepository = new ProjectRepositoryImpl();

@@ -4,11 +4,16 @@ public class Employee {
     private Integer id;
     private String username;
     private String email;
+    private Department department;
 
-    public Employee(Integer id, String username, String email) {
+    public Employee() {
+    }
+
+    public Employee(Integer id, String username, String email, Department department) {
         this.id = id;
         this.username = username;
         this.email = email;
+        this.department = department;
     }
 
     public Integer getId() {
@@ -33,5 +38,13 @@ public class Employee {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }

@@ -5,6 +5,7 @@
     <title>New Department</title>
 </head>
 <body>
+
 <form th:method="POST" th:action="@{/department}" th:object="${department}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name"/>

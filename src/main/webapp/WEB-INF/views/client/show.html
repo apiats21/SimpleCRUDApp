@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Client edit</title>
+</head>
+<body>
+<p th:text="${client.getName() + ', ' + client.getEmail()}">VALUE</p>
+
+<a th:href="@{/client/{id}/edit(id=${client.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/client/{id}(id=${client.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+</body>
+</html>

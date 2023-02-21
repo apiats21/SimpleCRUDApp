@@ -1,7 +1,6 @@
 package com.piatsevich.simplecrudapp.repository.jdbc;
 
 import com.piatsevich.simplecrudapp.config.JdbcUtils;
-import com.piatsevich.simplecrudapp.models.Person;
 import com.piatsevich.simplecrudapp.repository.DepartmentRepository;
 import com.piatsevich.simplecrudapp.models.Department;
 import org.springframework.stereotype.Component;

@@ -2,7 +2,6 @@ package com.piatsevich.simplecrudapp.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class JdbcUtils {

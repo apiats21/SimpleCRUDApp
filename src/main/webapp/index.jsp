@@ -7,5 +7,7 @@
 <a href="/chat">Chat</a>
 <br/>
 <a href="/project">Project</a>
+<br/>
+<a href="/client">Clients</a>
 </body>
 </html>
